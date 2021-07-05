@@ -11,11 +11,9 @@ public class Patient {
 	Gender gender;
 	
 	// Constructors
-	public Patient() {
-		
+	public Patient() {	
 	}
 	public Patient(String name, Integer id, LocalDate dateOfBirth, Gender gender) {
-		super();
 		this.name = name;
 		this.id = id;
 		this.dateOfBirth = dateOfBirth;

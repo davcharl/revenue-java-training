@@ -14,10 +14,8 @@ public class Screening {
 	
 	// Constructors
 	public Screening() {
-		super();
 	}
 	public Screening(Integer screeningId, Patient patientId, LocalDate dateOfScreening, Boolean malignantResult) {
-		super();
 		this.screeningId = screeningId;
 		this.patientId = patientId;
 		this.dateOfScreening = dateOfScreening;
