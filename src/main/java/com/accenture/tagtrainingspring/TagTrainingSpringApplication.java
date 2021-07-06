@@ -10,11 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.accenture.tagtrainingspring.patient.Gender;
 import com.accenture.tagtrainingspring.patient.Patient;
 import com.accenture.tagtrainingspring.screening.Screening;
+import com.accenture.tagtrainingspring.service.ScreeningDatabase;
 import com.accenture.tagtrainingspring.service.ScreeningService;
-
-
-
-
 
 @SpringBootApplication
 public class TagTrainingSpringApplication {
@@ -23,36 +20,18 @@ public class TagTrainingSpringApplication {
 		SpringApplication.run(TagTrainingSpringApplication.class, args);
 		printWelcomeMessage();
 		
-		boolean patientMatchesScreening;
-		List<Screening> screeningList = new ArrayList<Screening>();
+		// Properties
+		String name;
+		List<Screening> screeningList;
 		
-		Patient patient1 = new Patient();
-		Screening screening1 = new Screening();	
+		// Instantiate a screening service with a db
+		ScreeningDatabase db = new ScreeningDatabase();	
+		ScreeningService screeningService = new ScreeningService(db);
 		
-		// Populate the default instances with dummy data
-		patient1.setName("Adam");
-		patient1.setId(1111);
-		patient1.setDateOfBirth( LocalDate.of(2000, 07, 05));
-		patient1.setGender( Gender.MALE );
+		// Retrieve list of screenings from the screening service
+		screeningList = screeningService.ListOfScreenings();
 		
-		screening1.setScreeningId(22);
-		screening1.setPatientId(patient1);
-		screening1.setDateOfScreening(LocalDate.of(2021, 07, 05));
-		screening1.setMalignantResult(false);
-
-		// Populate more dummy objects using parameterised constructor
-		Patient patient2 = new Patient("Barry", 1112, LocalDate.of(2000, 12, 12), Gender.MALE);
-		Screening screening2 = new Screening(23, patient2, LocalDate.of(2021, 07, 06), true);
-		
-		Patient patient3 = new Patient("Ciara", 1113, LocalDate.of(1999, 02, 27), Gender.FEMALE);
-		Screening screening3 = new Screening(24, patient3, LocalDate.of(2021, 07, 06), false);
-		
-		screeningList.add(screening1);
-		screeningList.add(screening2);
-		screeningList.add(screening3);
-		
-		ScreeningService screeningService = new ScreeningService();
-		patientMatchesScreening = screeningService.matchScreeningToPatient(screening1, patient1);
+		/*
 		
 		System.out.println("Patient: " + screening1.getPatientId().getName() + 
 				" has a malignant diagnosis of " + screening1.getMalignantResult() );
@@ -61,9 +40,29 @@ public class TagTrainingSpringApplication {
 							": has a match of " + patientMatchesScreening + 
 							" with patient: " + patient1.getName());
 		
+		*/
+		
+		/*
+		ScreeningService screeningService = new ScreeningService();
+		patientMatchesScreening = screeningService.matchScreeningToPatient(screening1, patient1);
+		*/
+		 
+		
 		screeningList.stream().forEach(
 				x -> System.out.println(
 						"Patient " + x.getPatientId().getName() + " " + (x.getMalignantResult() ? "has " : "has not ") + "malignancy"  ) );
+		
+		
+		name = "Fred";
+		try {
+			Screening result = screeningService.matchNameToScreening(name);
+			System.out.println(result.getScreeningId());
+		} catch(Exception ex) {
+			System.out.println("No screening results for _" + name + "_");
+		}
+		
+
+		
 
 	}
 
