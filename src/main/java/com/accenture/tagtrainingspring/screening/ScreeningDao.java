@@ -4,8 +4,10 @@ import java.util.List;
 
 public interface ScreeningDao {
 	
-	Screening GetScreeningForPatientId(int patientId);
+	Screening getScreeningForPatientId(int patientId);
 	
-	List<Screening> GetAllScreenings();
+	List<Screening> getAllScreenings();
+	
+	void updateScreening(Screening screening);
 
 }

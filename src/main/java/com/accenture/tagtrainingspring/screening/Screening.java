@@ -78,57 +78,5 @@ public class Screening {
 
 	private char groupId;
 	
-	
-	
-	
-	/*
-	
-	Integer screeningId;
-	// Integer patientId;
-	Patient patientId = new Patient();
-	LocalDate dateOfScreening;
-	Boolean malignantResult;
-	
-	// Constructors
-	public Screening() {
-	}
-	public Screening(Integer screeningId, Patient patientId, LocalDate dateOfScreening, Boolean malignantResult) {
-		this.screeningId = screeningId;
-		this.patientId = patientId;
-		this.dateOfScreening = dateOfScreening;
-		this.malignantResult = malignantResult;
-	}
-	
-	// Getters Setters
-	public Integer getScreeningId() {
-		return screeningId;
-	}
-	public void setScreeningId(Integer screeningId) {
-		this.screeningId = screeningId;
-	}
-	public Patient getPatientId() {
-		return patientId;
-	}
-	public void setPatientId(Patient patientId) {
-		this.patientId = patientId;
-	}
-	public LocalDate getDateOfScreening() {
-		return dateOfScreening;
-	}
-	public void setDateOfScreening(LocalDate dateOfScreening) {
-		this.dateOfScreening = dateOfScreening;
-	}
-	public Boolean getMalignantResult() {
-		return malignantResult;
-	}
-	public void setMalignantResult(Boolean malignantResult) {
-		this.malignantResult = malignantResult;
-	}
-	
-	
-	*/
-	
-	
-	
 
 }
