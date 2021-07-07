@@ -22,5 +22,7 @@ public class ScreeningController {
 	public List<Screening> getScreenings(){
 		return screeningService.ListOfScreenings();
 	}
+	
+	
 
 }

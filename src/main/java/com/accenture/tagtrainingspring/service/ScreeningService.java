@@ -19,12 +19,14 @@ public class ScreeningService {
 	ScreeningDatabase db;
 	
 	// Constructors
+	
 	public ScreeningService() {
 		//db = new ScreeningDatabase();
 	}
 	public ScreeningService(ScreeningDatabase db) {
 		this.db = db;
 	}
+	
 
 	// Methods
 	public Boolean matchScreeningToPatient(Screening screening, Patient patient) {
