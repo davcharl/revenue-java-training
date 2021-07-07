@@ -11,9 +11,12 @@ import org.springframework.stereotype.Service;
 import com.accenture.tagtrainingspring.patient.Patient;
 import com.accenture.tagtrainingspring.screening.Screening;
 
+
+
 @Service
 public class ScreeningService {
 	
+	/*
 	// Properties
 	@Autowired
 	ScreeningDatabase db;
@@ -26,26 +29,34 @@ public class ScreeningService {
 	public ScreeningService(ScreeningDatabase db) {
 		this.db = db;
 	}
+	*/
 	
 
 	// Methods
+	// Named "isPatientScreening" in the exercise documentation
 	public Boolean matchScreeningToPatient(Screening screening, Patient patient) {
 		
 		boolean result = false;
-		if(screening.getPatientId().getId() == patient.getId() ) {
+		if(screening.getId() == patient.getId() ) {
 			result = true;
 		}
 		return result;
 	}
 	
+	/*
+	// Named "getScreenings" in exercise documentation
 	public List<Screening> ListOfScreenings(){
 		
-		return db.listAllScreenings();
+		// return db.listAllScreenings();
+		return null;
 	}
+	*/
 	
+	
+	/*
 	public Screening matchNameToScreening(String name) {
 				
-		// Check name
+		// Check _name_ value exists
 		if(name.isEmpty()) {
 			System.out.println("No name entered! Please input a name and try again.");
 			return null;
@@ -60,28 +71,9 @@ public class ScreeningService {
 			return result.get();
 		}
 		
-		return null;
-		
-		
-		
-		
-		
-		
-		/*
-		List<String> screeningNames = new ArrayList<>();
-		List<Screening> listOfScreenings = ListOfScreenings();
-		
-		// Get list of screenings where name is supplied
-		screeningNames = listOfScreenings.stream()
-				.filter( x -> (x.getPatientId().getName() == name))
-				.map(x -> x.getPatientId().getName())
-				.collect(Collectors.toList())  ;
-		
-		return screeningNames;
-		*/
-		
-		
+		return null;	
 	}
+	*/
 
 	
 }
